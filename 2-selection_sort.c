@@ -33,7 +33,7 @@ void selection_sort(int *array, size_t size)
 			 * If element at index i is not already the smallest
 			 * swaps it
 			 */
-			if (minPos != i)
+			if (min != i)
 			{
 				temp = array[i];
 				array[i] = array[min];
