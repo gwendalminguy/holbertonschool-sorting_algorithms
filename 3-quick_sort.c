@@ -16,7 +16,7 @@ void quick_sort(int *array, size_t size)
 	{
 		i = 0;
 		pivot--;
- 
+
 		/* Repeating for each value unsorted */
 		while (i < pivot)
 		{
