@@ -9,12 +9,27 @@ void quick_sort_recursive(int *array, size_t size, int *start, size_t total);
  */
 void quick_sort(int *array, size_t size)
 {
+	size_t i = 0;
+	int identical = 1;
 	int total = size;
 	int *start = &array[0];
 
 	if (size > 1)
 	{
-		quick_sort_recursive(&array[0], size, start, total);
+		/* Checking if array has at least two different values */
+		while (i < size)
+		{
+			if (array[0] != array[i])
+			{
+				identical = 0;
+				break;
+			}
+
+			i++;
+		}
+		
+		if (identical == 0)
+			quick_sort_recursive(&array[0], size, start, total);
 	}
 }
 
