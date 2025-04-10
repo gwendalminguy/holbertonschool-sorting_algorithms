@@ -27,7 +27,7 @@ void quick_sort(int *array, size_t size)
 
 			i++;
 		}
-		
+
 		if (identical == 0)
 			quick_sort_recursive(&array[0], size, start, total);
 	}
