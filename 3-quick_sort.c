@@ -7,31 +7,41 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	size_t pivot = size;
-	size_t i;
+	size_t pivot = size - 1;
+	int i = -1, j = 0;
 	int temp;
 
-	/* Repeating using each value as pivot from last to first */
-	while (pivot > 0)
+	if (size > 1)
 	{
-		i = 0;
-		pivot--;
-
-		/* Repeating for each value unsorted */
-		while (i < pivot)
+		/* Repeating for each value until pivot is reached */
+		while (j <= pivot)
 		{
-			/* Swapping values if unordered */
-			if (array[i] > array[pivot])
+			/* Swapping i and j in array if j is lower than pivot */
+			if (array[j] < array[pivot])
 			{
-				temp = array[i];
-				array[i] = array[pivot];
-				array[pivot] = temp;
+				i++;
 
-				print_array(array, size);
+				temp = array[j];
+				array[j] = array[i];
+				array[i] = temp;
+
+				print_array(&array[0], size);
 			}
 
-			i++;
-
+			j++;
 		}
+
+		i++;
+
+		/* Placing pivot at its final place */
+		temp = array[pivot];
+		array[pivot] = array[i];
+		array[i] = temp;
+
+		print_array(&array[0], size);
+
+		/* Calling function recursively on left and right sections */
+		quick_sort(&array[0], i);
+		quick_sort(&array[i + 1], size - (i + 1));
 	}
 }
