@@ -41,12 +41,14 @@ void quick_sort_recursive(int *array, size_t size, int *start, size_t total)
 			{
 				i++;
 
-				temp = array[j];
-				array[j] = array[i];
-				array[i] = temp;
-
 				if (i != j)
+				{
+					temp = array[j];
+					array[j] = array[i];
+					array[i] = temp;
+
 					print_array(&start[0], total);
+				}
 			}
 
 			j++;
@@ -55,11 +57,14 @@ void quick_sort_recursive(int *array, size_t size, int *start, size_t total)
 		i++;
 
 		/* Placing pivot at its final place */
-		temp = array[pivot];
-		array[pivot] = array[i];
-		array[i] = temp;
+		if (i != pivot)
+		{
+			temp = array[pivot];
+			array[pivot] = array[i];
+			array[i] = temp;
 
-		print_array(&start[0], total);
+			print_array(&start[0], total);
+		}
 
 		/* Calling function recursively on left and right sections */
 		quick_sort_recursive(&array[0], i, &start[0], total);
