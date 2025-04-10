@@ -11,14 +11,16 @@ void quick_sort(int *array, size_t size)
 	size_t i;
 	int temp;
 
+	/* Repeating using each value as pivot from last to first */
 	while (pivot > 0)
 	{
-		pivot--;
-
 		i = 0;
-
+		pivot--;
+ 
+		/* Repeating for each value unsorted */
 		while (i < pivot)
 		{
+			/* Swapping values if unordered */
 			if (array[i] > array[pivot])
 			{
 				temp = array[i];
