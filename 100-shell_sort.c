@@ -9,7 +9,8 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	int gap = 1, temp, swap, i;
+	size_t gap = 1;
+	int temp, swap, i;
 
 	/* Finding first gap to use from Knuth sequence */
 	while (gap * 3 + 1 < size)
