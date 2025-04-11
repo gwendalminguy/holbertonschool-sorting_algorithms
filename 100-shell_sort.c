@@ -16,18 +16,19 @@ void shell_sort(int *array, size_t size)
 	{
 		/* Finding first gap to use from Knuth sequence */
 		while (gap * 3 + 1 < size)
-		{
 			gap = gap * 3 + 1;
-		}
+		
 		/* Repeating with each gap from largest to 1 */
 		while (gap >= 1)
 		{
 			swap = 1;
+			
 			/* Repeating until no values are swapped */
 			while (swap == 1)
 			{
 				swap = 0;
 				i = size - gap - 1;
+			
 				/* Repeating on each value of array */
 				while (i >= 0)
 				{
@@ -43,8 +44,10 @@ void shell_sort(int *array, size_t size)
 					i--;
 				}
 			}
+			
 			/* Updating gap value */
 			gap = (gap - 1) / 3;
+			
 			/* Printing the array */
 			print_array(array, size);
 		}
