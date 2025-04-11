@@ -4,6 +4,7 @@ void quick_sort_recursive(int *array, size_t size, int *start, size_t total);
 
 /**
  * quick_sort - sorts an array in ascending order
+ *		using quick sorting algorithm
  * @array: array to sort
  * @size: size of array
  */
@@ -35,6 +36,7 @@ void quick_sort(int *array, size_t size)
 
 /**
  * quick_sort_recursive - sorts an array in ascending order
+ *			  using quick sorting algorithm
  * @array: array to sort
  * @size: number of element to sort in array
  * @start: beginning of the whole array
