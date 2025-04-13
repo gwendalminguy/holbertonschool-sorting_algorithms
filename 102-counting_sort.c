@@ -2,20 +2,20 @@
 
 /**
  * counting_sort - sorts an array in ascending order
- * 		   using counting sorting algorithm
+ *		   using counting sorting algorithm
  * @array: array to sort
  * @size: size of array
  */
 void counting_sort(int *array, size_t size)
 {
-	int i = 0, max = 0;
+	size_t i = 0, max = 0;
 	int *countingArray;
 	int *tempArray;
 
 	/* Finding largest value in array */
 	while (i < size)
 	{
-		if (array[i] > max)
+		if (array[i] > (int)max)
 			max = array[i];
 		i++;
 	}
