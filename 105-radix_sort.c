@@ -43,10 +43,10 @@ void radix_sort(int *array, size_t size)
 
 /**
  * count_sort - sorts an array in ascending order
- *		using radix sorting algorithm
+ *		using counting sorting algorithm
  * @array: array to sort
  * @size: size of array
- * @power: power of 10 to sort array along
+ * @power: significant number to use for sorting
  */
 void count_sort(int *array, size_t size, int power)
 {
@@ -58,8 +58,8 @@ void count_sort(int *array, size_t size, int power)
 	/* Finding largest value in array */
 	while (i < size)
 	{
-		if (array[i] > (int)max)
-			max = array[i];
+		if ((array[i] / power) % 10 > (int)max)
+			max = (array[i] / power) % 10;
 		i++;
 	}
 
@@ -84,7 +84,7 @@ void count_sort(int *array, size_t size, int power)
 			countingArray[i] += countingArray[i - 1];
 
 		/* Replacing values in array */
-		for (i = 0 ; i < size ; i++)
+		for (i = size - 1 ; i + 1 >= 1 ; i--)
 		{
 			array[countingArray[digitArray[i]] - 1] = numberArray[i];
 			countingArray[digitArray[i]] -= 1;
