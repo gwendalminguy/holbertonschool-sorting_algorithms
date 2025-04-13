@@ -44,7 +44,10 @@ void counting_sort(int *array, size_t size)
 
 			/* Replacing values in array */
 			for (i = 0 ; i < size ; i++)
+			{
 				array[countingArray[tempArray[i]] - 1] = tempArray[i];
+				countingArray[tempArray[i]] -= 1;
+			}
 		}
 
 		/* Freeing memory */
