@@ -1,14 +1,14 @@
 #include "sort.h"
 
 /**
- * counting_sort - ...
+ * counting_sort - sorts an array in ascending order
+ * 		   using counting sorting algorithm
  * @array: array to sort
  * @size: size of array
  */
 void counting_sort(int *array, size_t size)
 {
-	int i = 0;
-	int max = 0;
+	int i = 0, max = 0;
 	int *countingArray;
 	int *tempArray;
 
@@ -17,7 +17,6 @@ void counting_sort(int *array, size_t size)
 	{
 		if (array[i] > max)
 			max = array[i];
-
 		i++;
 	}
 
@@ -39,14 +38,11 @@ void counting_sort(int *array, size_t size)
 		for (i = 1 ; i < max + 1 ; i++)
 			countingArray[i] += countingArray[i - 1];
 
-		/* Printing countingArray */
 		print_array(countingArray, max + 1);
 
 		/* Replacing values in array */
 		for (i = 0 ; i < size ; i++)
-		{
 			array[countingArray[tempArray[i]] - 1] = tempArray[i];
-		}
 	}
 
 	/* Freeing memory */
