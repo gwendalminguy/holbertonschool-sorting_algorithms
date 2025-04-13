@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void merge_sort_recursive(int *array, size_t size);
+void merge_sort_recursive(int *array, size_t size, int *newArray);
 
 /**
  * merge_sort - sorts an array in ascending order
@@ -12,6 +12,7 @@ void merge_sort(int *array, size_t size)
 {
 	size_t i = 0;
 	int identical = 1;
+	int *newArray;
 
 	if (size > 1)
 	{
@@ -29,7 +30,17 @@ void merge_sort(int *array, size_t size)
 
 		/* Sorting array with recursion */
 		if (identical == 0)
-			merge_sort_recursive(array, size);
+		{
+			/* Allocating memory */
+			newArray = malloc(size * sizeof(int));
+			
+			/* Calling merge sort recursively */
+			if (newArray != NULL)
+				merge_sort_recursive(array, size, newArray);
+
+			/* Freeing memory */
+			free(newArray);
+		}
 	}
 }
 
@@ -38,10 +49,10 @@ void merge_sort(int *array, size_t size)
  *			  using merge sorting algorithm
  * @array: array to sort
  * @size: size of array
+ * @newArray: temporary array
  */
-void merge_sort_recursive(int *array, size_t size)
+void merge_sort_recursive(int *array, size_t size, int *newArray)
 {
-	int *newArray;
 	size_t leftSize = 0;
 	size_t rightSize = 0;
 	size_t i = 0, j = 0, n = 0;
@@ -51,9 +62,6 @@ void merge_sort_recursive(int *array, size_t size)
 		/* Computing left and right sizes */
 		leftSize = size / 2;
 		rightSize = size - leftSize;
-
-		/* Allocating memory for left and right sections */
-		newArray = malloc(size * sizeof(int));
 
 		/* Filling left and right sections */
 		while (i < leftSize)
@@ -70,8 +78,8 @@ void merge_sort_recursive(int *array, size_t size)
 		}
 
 		/* Calling function recursively on left and right sections */
-		merge_sort_recursive(&newArray[0], leftSize);
-		merge_sort_recursive(&newArray[leftSize], rightSize);
+		merge_sort_recursive(&newArray[0], leftSize, &array[0]);
+		merge_sort_recursive(&newArray[leftSize], rightSize, &array[leftSize]);
 
 		i = 0;
 		j = 0;
@@ -115,8 +123,5 @@ void merge_sort_recursive(int *array, size_t size)
 		print_array(&newArray[leftSize], rightSize);
 		printf("[Done]: ");
 		print_array(array, size);
-
-		/* Freeing memory */
-		free(newArray);
 	}
 }
