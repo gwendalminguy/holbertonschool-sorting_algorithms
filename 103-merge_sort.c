@@ -16,31 +16,15 @@ void merge_sort(int *array, size_t size)
 
 	if (size > 1)
 	{
-		/* Checking if array has at least two different values */
-		while (i < size)
-		{
-			if (array[0] != array[i])
-			{
-				identical = 0;
-				break;
-			}
-
-			i++;
-		}
+		/* Allocating memory */
+		newArray = malloc(size * sizeof(int));
 
 		/* Sorting array with recursion */
-		if (identical == 0)
-		{
-			/* Allocating memory */
-			newArray = malloc(size * sizeof(int));
-			
-			/* Calling merge sort recursively */
-			if (newArray != NULL)
-				merge_sort_recursive(array, size, newArray);
+		if (newArray != NULL)
+			merge_sort_recursive(array, size, newArray);
 
-			/* Freeing memory */
-			free(newArray);
-		}
+		/* Freeing memory */
+		free(newArray);
 	}
 }
 
