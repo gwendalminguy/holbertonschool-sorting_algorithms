@@ -10,8 +10,8 @@ void count_sort(int *array, size_t size, int power);
  */
 void radix_sort(int *array, size_t size)
 {
-	size_t i = 0, max = 0;
-	int digits = 0, power = 1;
+	size_t i = 0, max = 0, digits = 0;
+	int power = 1;
 
 	if (size > 1)
 	{
