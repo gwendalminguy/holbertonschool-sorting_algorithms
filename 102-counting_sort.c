@@ -21,9 +21,11 @@ void counting_sort(int *array, size_t size)
 				max = array[i];
 			i++;
 		}
+		
 		/* Allocating memory */
 		countingArray = malloc((max + 1) * sizeof(int));
 		tempArray = malloc(size * sizeof(int));
+		
 		/* Sorting array */
 		if (countingArray != NULL && tempArray != NULL)
 		{
@@ -33,15 +35,18 @@ void counting_sort(int *array, size_t size)
 				countingArray[array[i]] += 1;
 				tempArray[i] = array[i];
 			}
+		
 			/* Adding count of previous element for each value in countingArray */
 			for (i = 1 ; i < max + 1 ; i++)
 				countingArray[i] += countingArray[i - 1];
 
 			print_array(countingArray, max + 1);
+		
 			/* Replacing values in array */
 			for (i = 0 ; i < size ; i++)
 				array[countingArray[tempArray[i]] - 1] = tempArray[i];
 		}
+		
 		/* Freeing memory */
 		free(countingArray);
 		free(tempArray);
