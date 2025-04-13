@@ -12,40 +12,38 @@ void counting_sort(int *array, size_t size)
 	int *countingArray;
 	int *tempArray;
 
-	/* Finding largest value in array */
-	while (i < size)
+	if (size > 1)
 	{
-		if (array[i] > (int)max)
-			max = array[i];
-		i++;
-	}
-
-	/* Allocating memory */
-	countingArray = malloc((max + 1) * sizeof(int));
-	tempArray = malloc(size * sizeof(int));
-
-	/* Sorting array */
-	if (countingArray != NULL && tempArray != NULL)
-	{
-		/* Counting number of unique elements in array and copying array */
-		for (i = 0 ; i < size ; i++)
+		/* Finding largest value in array */
+		while (i < size)
 		{
-			countingArray[array[i]] += 1;
-			tempArray[i] = array[i];
+			if (array[i] > (int)max)
+				max = array[i];
+			i++;
 		}
+		/* Allocating memory */
+		countingArray = malloc((max + 1) * sizeof(int));
+		tempArray = malloc(size * sizeof(int));
+		/* Sorting array */
+		if (countingArray != NULL && tempArray != NULL)
+		{
+			/* Counting number of unique elements in array and copying array */
+			for (i = 0 ; i < size ; i++)
+			{
+				countingArray[array[i]] += 1;
+				tempArray[i] = array[i];
+			}
+			/* Adding count of previous element for each value in countingArray */
+			for (i = 1 ; i < max + 1 ; i++)
+				countingArray[i] += countingArray[i - 1];
 
-		/* Adding count of previous element for each value in countingArray */
-		for (i = 1 ; i < max + 1 ; i++)
-			countingArray[i] += countingArray[i - 1];
-
-		print_array(countingArray, max + 1);
-
-		/* Replacing values in array */
-		for (i = 0 ; i < size ; i++)
-			array[countingArray[tempArray[i]] - 1] = tempArray[i];
+			print_array(countingArray, max + 1);
+			/* Replacing values in array */
+			for (i = 0 ; i < size ; i++)
+				array[countingArray[tempArray[i]] - 1] = tempArray[i];
+		}
+		/* Freeing memory */
+		free(countingArray);
+		free(tempArray);
 	}
-
-	/* Freeing memory */
-	free(countingArray);
-	free(tempArray);
 }
