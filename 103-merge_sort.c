@@ -10,8 +10,6 @@ void merge_sort_recursive(int *array, size_t size, int *newArray);
  */
 void merge_sort(int *array, size_t size)
 {
-	size_t i = 0;
-	int identical = 1;
 	int *newArray;
 
 	if (size > 1)
