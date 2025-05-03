@@ -30,11 +30,11 @@ This project is about learning to write sorting algorithms and to understand the
 
 | **Names** | **Time Complexity** | **Description** |
 | :-------- | :-----------------: | :-------------- |
-| [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) | O(n^2) | Sorts an array by comparing each element with the next one, and swaps them if necessary. |
-| [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | O(n^2) | Sorts an array by comparing each element with the previous one, and swaps them if necessary. |
-| [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | O(n^2) | ... |
-| [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) | O(nlog(n)) | ... |
-| [Shell Sort](https://en.wikipedia.org/wiki/Shellsort) | / | ... |
-| [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | O(n+k) | ... |
+| [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) | O(n^2) | Sorts an array by comparing each element with the next one, swapping them if necessary. |
+| [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) | O(n^2) | Sorts an array by comparing each element with the previous one, swapping them if necessary. |
+| [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) | O(n^2) | Sorts an array by finding the smallest element on each iteration, swapping it at the beginning. |
+| [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) | O(nlog(n)) | Sorts an array by finding the final position of a pivot, and partitioning other elements to sort them recursively. |
+| [Shell Sort](https://en.wikipedia.org/wiki/Shellsort) | / | Sorts an array by comparing elements separated by a gap using insertion sort, and reducing the gap on each iteration. |
+| [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | O(n+k) | Sorts an array by counting the number of occurances of each element, and computing their final position. |
 | [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) | O(nlog(n)) | Sorts recursively the left half and the right half of an array, and merges them in the right order. |
-| [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort) | / | ... |
+| [Radix Sort](https://en.wikipedia.org/wiki/Radix_sort) | / | Sorts an array by comparing each significant digit of all elements, using counting sort. |
